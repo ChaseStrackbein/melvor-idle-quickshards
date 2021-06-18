@@ -1,11 +1,13 @@
 {
   "manifest_version": 2,
   "name": "QuickShards for Melvor Idle",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Allows for quickly purchasing summoning shards directly from the Summoning skill menu.",
 
   "icons": {
-    "48": "icons/icon-48.png"
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
 
   "content_scripts": [
@@ -20,6 +22,6 @@
     }
   ],
   "web_accessible_resources": [
-    "quickshards.js"
+    "bqs-main.js"
   ]
 }
