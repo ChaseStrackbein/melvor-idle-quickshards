@@ -1,4 +1,4 @@
-(() => {
+((browser) => {
   const scriptName = 'bqs-main';
   const existingScript = document.getElementById(scriptName);
   
@@ -11,4 +11,4 @@
   script.setAttribute('id', scriptName);
   script.src = scriptPath;
   document.body.appendChild(script);
-})();
+})(browser || chrome);
