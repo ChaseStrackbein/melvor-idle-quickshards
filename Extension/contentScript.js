@@ -1,4 +1,4 @@
-((browser) => {
+(() => {
   const scriptName = 'bqs-main';
   const existingScript = document.getElementById(scriptName);
   
@@ -6,9 +6,9 @@
     existingScript.remove();
   }
   
-  const scriptPath = browser.runtime.getURL(`${scriptName}.js`);
+  const scriptPath = chrome.runtime.getURL(`${scriptName}.js`);
   const script = document.createElement('script');
   script.setAttribute('id', scriptName);
   script.src = scriptPath;
   document.body.appendChild(script);
-})(browser || chrome);
+})();
