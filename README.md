@@ -5,7 +5,7 @@ A simple browser extension that enables quickly buying shards from the Summoning
 Links will be added for the Chrome Extension/Firefox Add-Ons stores once approved. In the meantime, you can manually load the extension by downloading the [latest release](https://github.com/ChaseStrackbein/melvor-idle-quickshards/releases/latest) and following the instructions for manually loading extensions below.
 
 ### Chrome
-Download the quickshards_for_melvor_idle-\[Version\]-**chrome.zip** file from the latest release and extract the .zip contents to a folder of your choice.
+Download the quickshards_for_melvor_idle-\[version\]-**chrome.zip** file from the latest release and extract the .zip contents to a folder of your choice.
 1. Navigate to [chrome://extensions/](chrome://extensions/)
 2. Enable developer mode if not already enabled
 3. Select 'Load unpacked' and load the folder extracted in step 2.
@@ -13,7 +13,7 @@ Download the quickshards_for_melvor_idle-\[Version\]-**chrome.zip** file from th
 ![Chrome installation instructions](Media/chrome-install.png)
 
 ### Firefox
-Download the quickshards_for_melvor_idle-\[Version\]-**firefox.xpi** file from the latest release.
+Download the quickshards_for_melvor_idle-\[version\]-**firefox.xpi** file from the latest release.
 1. Navigate to [about:addons](about:addons)
 2. Open the settings menu (cog icon)
 3. Select 'Install Add-on From File...' and load the .xpi file.
