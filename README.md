@@ -2,7 +2,7 @@
 A simple browser extension that enables quickly buying shards from the Summoning page.
 
 ## Installation
-Links will be added for the Chrome Extension/Firefox Add-Ons stores once approved. In the meantime, you can manually load the extension by downloading the [latest release](https://github.com/ChaseStrackbein/melvor-idle-quickshards/releases/latest) and following the instructions for manually loading extensions below.
+Links will be added for the Chrome Extension stores once approved. In the meantime, if you're a Chrome user you can manually load the extension by downloading the [latest release](https://github.com/ChaseStrackbein/melvor-idle-quickshards/releases/latest) and following the instructions for manually loading extensions below, or use the userscript.
 
 ### Chrome
 Download the quickshards_for_melvor_idle-\[version\]-**chrome.zip** file from the latest release and extract the .zip contents to a folder of your choice.
@@ -13,12 +13,18 @@ Download the quickshards_for_melvor_idle-\[version\]-**chrome.zip** file from th
 ![Chrome installation instructions](Media/chrome-install.png)
 
 ### Firefox
+[Get QuickShards for Firefox](https://addons.mozilla.org/en-US/firefox/addon/quickshards-for-melvor-idle/)
+
+Or, to manually install the extension:
 Download the quickshards_for_melvor_idle-\[version\]-**firefox.xpi** file from the latest release.
 1. Navigate to [about:addons](about:addons)
 2. Open the settings menu (cog icon)
 3. Select 'Install Add-on From File...' and load the .xpi file.
 
 ![Firefox installation instructions](Media/firefox-install.png)
+
+### Userscript
+[Get the userscript](https://greasyfork.org/en/scripts/428146-quickshards-for-melvor-idle) *(incompatible with Greasemonkey)*
 
 ## Usage
 The quantity represents how many of the currently opened recipe you would like to buy. For example, a recipe that requires 6 red summoning shards will result in the following:
