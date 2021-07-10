@@ -27,7 +27,7 @@ Download the quickshards_for_melvor_idle-\[version\]-**firefox.xpi** file from t
 ![Firefox installation instructions](Media/firefox-install.png)
 
 ### Userscript
-[Get the userscript](https://greasyfork.org/en/scripts/428146-quickshards-for-melvor-idle) *(incompatible with Greasemonkey)*
+[Get the userscript](https://greasyfork.org/en/scripts/428146-quickshards-for-melvor-idle)
 
 ## Usage
 The quantity represents how many of the currently opened recipe you would like to buy. For example, a recipe that requires 6 red summoning shards will result in the following:
