@@ -11,6 +11,8 @@
   const observer = new MutationObserver(update);
 
   // Cached jQuery objects
+  let $eyecon;
+  let $body;
   let $itemContainer;
   let $totalCostContainer;
   let $buyButton;
@@ -67,7 +69,9 @@
   function onToggleQuickShards () {
     showQuickShards = !showQuickShards;
     savePrefs();
-    toggleShopMenu('bqs');
+
+    $eyecon.toggleClass('fa-eye', showQuickShards).toggleClass('fa-eye-slash', !showQuickShards);
+    $body.toggleClass('d-none', !showQuickShards);
   }
 
   function onIgnoreBankChange () {
@@ -231,19 +235,19 @@
     const h3 = build('h3', 'block-title text-left')
       .text('Quick Buy Shards');
 
-    const eyeCons = build('div', 'block-options')
-      .append(build('i', 'far fa-eye', { id: 'shop-icon-open-bqs' }).toggleClass('d-none', !showQuickShards))
-      .append(build('i', 'far fa-eye-slash', { id: 'shop-icon-closed-bqs' }).toggleClass('d-none', showQuickShards));
+    const options = build('div', 'block-options');
+        
+    $eyecon = build('i', 'far', { id: 'shop-icon-open-bqs' }).toggleClass('fa-eye', showQuickShards).toggleClass('fa-eye-slash', !showQuickShards);
 
-    header.append(h3).append(eyeCons);
+    header.append(h3).append(options.append($eyecon));
 
     return header;
   }
 
   function buildBody () {
-    const body = build('div', 'row no-gutters', { id: 'shop-cat-bqs' }).toggleClass('d-none', !showQuickShards);
+    $body = build('div', 'row no-gutters', { id: 'shop-cat-bqs' }).toggleClass('d-none', !showQuickShards);
 
-    body
+    $body
       .append(buildQuickShardItems())
       .append(build('div', 'col-12 row no-gutters justify-content-center align-items-center')
         .append(buildTotalCost())
@@ -251,7 +255,7 @@
       .append(build('div', 'col-12')
         .append(buildIgnoreBank()));
 
-    return body;
+    return $body;
   }
 
   function buildQuickShardItems () {
