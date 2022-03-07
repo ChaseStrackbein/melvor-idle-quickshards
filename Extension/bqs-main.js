@@ -118,53 +118,48 @@
   }
 
   function calculateShardsToBuy () {
-    if (selectedSummon === undefined || selectedSummon === null) {
+    if (!game.summoning.selectedRecipe) {
       shardsToBuy = [];
       return;
     }
-
-    const itemId = summoningItems[selectedSummon].itemID;
-    const item = items[itemId];
-    const recipeId = summoningData.defaultRecipe[item.masteryID[1]];
-    const recipe = item.summoningReq[recipeId];
+ 
+    const recipe = game.summoning.getCurrentRecipeCosts();
     
     shardsToBuy = [];
     
-    for (const [i, item] of recipe.entries()) {
-      if (!summoningShardIds.includes(item.id)) continue;
+    for (const [itemId, qty] of recipe._items) {
+      if (!summoningShardIds.includes(itemId)) continue;
       
-      let quantityToBuy = getSummoningRecipeQty(itemId, recipeId, i) * buyQuantity;
-      if (!ignoreBank) quantityToBuy = Math.max(quantityToBuy - getBankQty(item.id), 0);
+      let quantityToBuy = qty * buyQuantity;
+      if (!ignoreBank) quantityToBuy = Math.max(quantityToBuy - getBankQty(itemId), 0);
       
       shardsToBuy.push({
-        id: item.id,
-        cost: items[item.id].buysFor,
+        id: itemId,
+        cost: SHOP.Materials.find(i => i.contains?.items?.some(c => c[0] === itemId)).cost.gp,
         quantity: quantityToBuy
       });
     }
   }
-
+ 
   function calculateMaxCraftQuantity() {
-    if (selectedSummon === undefined || selectedSummon === null) {
-      return 0;
+    if (!game.summoning.selectedRecipe) {
+      shardsToBuy = [];
+      return;
     }
-
-    const itemId = summoningItems[selectedSummon].itemID;
-    const item = items[itemId];
-    const recipeId = summoningData.defaultRecipe[item.masteryID[1]];
-    const recipe = item.summoningReq[recipeId];
+ 
+    const recipe = game.summoning.getCurrentRecipeCosts();
     
     const maxCraftAmounts = [];
     
-    for (const [i, item] of recipe.entries()) {
-      if (summoningShardIds.includes(item.id)) continue;
+    for (const [itemId, qty] of recipe._items) {
+      if (summoningShardIds.includes(itemId)) continue;
       
-      const quantityNeeded = getSummoningRecipeQty(itemId, recipeId, i);
-      let quantityAvailable = getBankQty(item.id);
-      // if (item.id === -4) quantityAvailable = gp;
-      if (item.id === -5) quantityAvailable = slayerCoins;
+      const quantityAvailable = getBankQty(itemId);
       
-      maxCraftAmounts.push(Math.floor(quantityAvailable / quantityNeeded));
+      maxCraftAmounts.push(Math.floor(quantityAvailable / qty));
+    }
+    if (recipe._sc) {
+      maxCraftAmounts.push(Math.floor(player.slayercoins / recipe._sc));
     }
     
     return Math.min(...maxCraftAmounts);
